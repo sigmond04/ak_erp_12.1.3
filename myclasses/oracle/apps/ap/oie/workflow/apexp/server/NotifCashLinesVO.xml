@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<!-- $Header: NotifCashLinesVO.xml 120.9.12010000.5 2011/02/24 14:57:56 meesubra ship $ -->
+
+<ViewObject
+   Name="NotifCashLinesVO"
+   OrderBy="distribution_line_number"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.ap.oie.workflow.apexp.server.NotifExpLinesVORowImpl"
+   ComponentClass="oracle.apps.ap.oie.workflow.apexp.server.NotifExpLinesVOImpl"
+   UseGlueCode="false" >
+   <Properties>
+      <Property Name ="VO_ATTR.NotifExpAllocationsVO.VO_DATATYPE" Value ="Number" />
+      <Property Name ="VO_ATTR.NotifExpAllocationsVO.VO_QUALIFIED_NAME" Value ="Number" />
+   </Properties>
+   <SQLQuery><![CDATA[
+SELECT XL.receipt_missing_flag receipt_missing_flag,
+XL.start_expense_date start_expense_date,
+to_number(LPAD(to_char(XL.daily_amount),9)) daily_amount,
+XL.receipt_currency_code receipt_currency_code,
+LPAD(to_char(XL.receipt_conversion_rate),5) receipt_conversion_rate,
+LPAD(to_char(XL.receipt_currency_amount),10) receipt_currency_amount,
+to_char(XL.amount,FND_CURRENCY.Get_Format_Mask(XL.currency_code,22)) amount,
+XL.justification justification,
+nvl(XP.web_friendly_prompt, XP.prompt) expense_type,
+XL.credit_card_trx_id credit_card_trx_id,
+XL.distribution_line_number distribution_line_number,
+XL.merchant_name merchant_name,
+XL.mileage_rate_adjusted_flag mileage_rate_adjusted_flag,
+AP_WEB_EXPENSE_WF.IsExpAccountsUpdated(XL.report_line_id) exp_allocations_updated,
+XL.report_line_id,
+to_char(AGT.approver_amount,FND_CURRENCY.Get_Format_Mask(XL.currency_code,22)) approver_amount,
+XL.allocation_reason,
+XL.itemization_parent_id itemization_parent_id,
+:1 DetailsHideShow,
+XL.image_receipt_required_flag,
+AP_WEB_POLICY_UTILS.get_lookup_meaning('OIE_LINE_ADJUSTMENT_REASONS',nvl(XL.adjustment_reason_code,XL.adjustment_reason_copy)) adjustment_reason_code
+FROM    ap_expense_report_params XP,
+	ap_expense_report_lines XL,
+	ap_lookup_codes LC,
+        oie_ame_approver_amt_gt AGT
+WHERE   XL.report_header_id = :2
+AND     XL.web_parameter_id = XP.parameter_id
+AND     XL.line_type_lookup_code = LC.lookup_code
+AND     LC.lookup_type = 'INVOICE DISTRIBUTION TYPE'
+AND     XL.credit_card_trx_id is null
+AND     (XL.itemization_parent_id is null OR XL.itemization_parent_id <> -1)
+AND     XL.report_line_id = AGT.report_line_id(+)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_rowSuperClassName" Value="oracle.apps.ap.oie.workflow.apexp.server.NotifExpLinesVORowImpl" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_objectSuperClassName" Value="oracle.apps.ap.oie.workflow.apexp.server.NotifExpLinesVOImpl" />
+      <Attr Name="_codeGenFlag2" Value="" />
+   </DesignTime>
+   <ViewAttribute
+      Name="ReceiptMissingFlag"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="RECEIPT_MISSING_FLAG"
+      Expression="RECEIPT_MISSING_FLAG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StartExpenseDate"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="START_EXPENSE_DATE"
+      Expression="START_EXPENSE_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="9" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DailyAmount"
+      IsPersistent="false"
+      Precision="27"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DAILY_AMOUNT"
+      Expression="DAILY_AMOUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="9" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReceiptCurrencyCode"
+      IsPersistent="false"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="RECEIPT_CURRENCY_CODE"
+      Expression="RECEIPT_CURRENCY_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReceiptConversionRate"
+      IsPersistent="false"
+      Precision="5"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="RECEIPT_CONVERSION_RATE"
+      Expression="RECEIPT_CONVERSION_RATE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="5" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReceiptCurrencyAmount"
+      IsPersistent="false"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="RECEIPT_CURRENCY_AMOUNT"
+      Expression="RECEIPT_CURRENCY_AMOUNT"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Amount"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="AMOUNT"
+      Expression="AMOUNT"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Justification"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="JUSTIFICATION"
+      Expression="JUSTIFICATION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExpenseType"
+      IsPersistent="false"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="expense_type"
+      Expression="expense_type"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreditCardTrxId"
+      IsPersistent="false"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="VARCHAR2"
+      AliasName="CREDIT_CARD_TRX_ID"
+      Expression="CREDIT_CARD_TRX_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DistributionLineNumber"
+      IsPersistent="false"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="number"
+      AliasName="DISTRIBUTION_LINE_NUMBER"
+      Expression="DISTRIBUTION_LINE_NUMBER"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MerchantName"
+      IsPersistent="false"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MERCHANT_NAME"
+      Expression="MERCHANT_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MileageRateAdjustedFlag"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MILEAGE_RATE_ADJUSTED_FLAG"
+      Expression="MILEAGE_RATE_ADJUSTED_FLAG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExpAllocationsUpdated"
+      IsPersistent="false"
+      Precision="3"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="exp_allocations_updated"
+      Expression="exp_allocations_updated"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReportLineId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="report_line_id"
+      Expression="report_line_id"
+      SQLType="NUMERIC" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApproverAmount"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="approver_amount"
+      Expression="approver_amount"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AllocationReason"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="allocation_reason"
+      Expression="allocation_reason"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemizationParentId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="Number"
+      AliasName="itemization_parent_id"
+      Expression="itemization_parent_id"
+      SQLType="NUMERIC" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Detailshideshow"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="Detailshideshow"
+      Expression="Detailshideshow"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ImageReceiptRequiredFlag"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="IMAGE_RECEIPT_REQUIRED_FLAG"
+      Expression="IMAGE_RECEIPT_REQUIRED_FLAG"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdjustmentReasonCode"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="adjustment_reason_code"
+      Expression="adjustment_reason_code"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ViolationType"
+      IsSelected="false"
+      IsQueriable="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="violation_type"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StringLineNumber"
+      IsQueriable="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="string_line_number"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewLinkAccessor
+      Name="NotifExpAllocationsVO"
+      ViewLink="oracle.apps.ap.oie.workflow.apexp.server.NotifCashToAllocVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </ViewLinkAccessor>
+</ViewObject>

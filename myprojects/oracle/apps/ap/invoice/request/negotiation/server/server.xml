@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<!-- $Header: server.xml 120.10 2006/10/18 18:36:29 gbellary noship $ -->
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.ap.invoice.request.negotiation.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="9.0.3.13.88" />
+   </DesignTime>
+   <Containee
+      Name="NegotiationAM"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NegotiationAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NegotiationPVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NegotiationPVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="PoDetailVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.PoDetailVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVOToPoDetailVOVL"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVOToPoDetailVOVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="InvVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="AccountingVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.AccountingVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVOToAccountingVOVL"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVOToAccountingVOVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="ApInvoiceHeaderVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ApInvoiceHeaderVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotificationPageAM"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="NotifPGAcctSumVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NotifPGAcctSumVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifPGLineDetailsVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ApHoldsVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ApHoldsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ActionPoplistVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ActionPoplistVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ApNegotiationHistVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ApNegotiationHistVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVOToApNegotiationHistVOVL"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVOToApNegotiationHistVOVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="ApInvAprvlHistVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ApInvAprvlHistVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVOToApInvAprvlHistVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVOToApInvAprvlHistVO"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="NegoAcceptVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NegoAcceptVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ApInvDistAllVO"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.ApInvDistAllVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InvPoLineVOToApInvDistAllVOVL"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.InvPoLineVOToApInvDistAllVOVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="NegTaxSummaryAM"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.NegTaxSummaryAM"
+      ObjectType="AppModule" >
+   </Containee>
+</JboPackage>

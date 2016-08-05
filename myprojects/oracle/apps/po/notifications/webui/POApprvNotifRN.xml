@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header: POApprvNotifRN.xml 120.0.12010000.4 2014/03/17 07:28:12 zhijfeng noship $" standalone="true" amDefName="oracle.apps.po.notifications.server.PONotifAM" text="" controllerClass="oracle.apps.po.notifications.webui.POApprvNotifCO">
+   <ui:contents>
+      <oa:header id="HeaderDetailsRN" controllerClass="oracle.apps.po.notifications.webui.PoNotifHeaderDetailsCO" text="Document Details">
+         <ui:contents>
+            <oa:messageComponentLayout id="DocumentDetails" rows="5" columns="2">
+               <ui:contents>
+                  <oa:messageStyledText id="Supplier" dataType="VARCHAR2" prompt="Supplier" viewName="PoNotifHeaderSummaryVO" viewAttr="VendorName" maximumLength="240" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="SupplierSite" dataType="VARCHAR2" prompt="Site" viewName="PoNotifHeaderSummaryVO" viewAttr="VendorSiteCode" maximumLength="15" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="FrieghtTerms" viewName="PoNotifHeaderSummaryVO" viewAttr="FreightTerms" prompt="Freight Terms" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="Preparer" dataType="VARCHAR2" prompt="Buyer" viewName="PoNotifHeaderSummaryVO" viewAttr="Buyer" maximumLength="240" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Description" viewName="PoNotifHeaderSummaryVO" viewAttr="Comments" maximumLength="240" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="Amount" viewName="PoNotifHeaderSummaryVO" viewAttr="Total" styleClass="OraDataText" prompt="Amount"/>
+                  <oa:messageStyledText id="Tax" prompt="Tax" styleClass="OraDataText" viewName="PoNotifHeaderSummaryVO" viewAttr="Tax"/>
+                  <oa:messageStyledText id="Currency" viewName="PoNotifHeaderSummaryVO" viewAttr="CurrencyCode" styleClass="OraDataText" prompt="Currency"/>
+                  <oa:messageStyledText id="PaymentTerms" prompt="Payment Terms" viewName="PoNotifHeaderSummaryVO" viewAttr="PaymentTerms" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="LineDetailsRN" text="Line Details" controllerClass="oracle.apps.po.notifications.webui.PONotifLineDetailsCO">
+         <ui:contents>
+            <oa:table id="PoNotifLinesSummaryVO" blockSize="50">
+               <ui:contents>
+                  <oa:messageStyledText id="LineNum" dataType="NUMBER" prompt="Line" viewName="PoNotifLinesSummaryVO" viewAttr="LineNum"/>
+                  <oa:messageStyledText id="ItemName" dataType="VARCHAR2" prompt="Item Number" viewName="PoNotifLinesSummaryVO" viewAttr="ItemNum" maximumLength="40"/>
+                  <oa:messageStyledText id="ItemRevision" dataType="VARCHAR2" prompt="Rev." viewName="PoNotifLinesSummaryVO" viewAttr="ItemRevision" maximumLength="3"/>
+                  <oa:messageStyledText id="ItemDescription" dataType="VARCHAR2" prompt="Item Description" viewName="PoNotifLinesSummaryVO" viewAttr="ItemDescription" maximumLength="240"/>
+                  <oa:messageStyledText id="Uom" dataType="VARCHAR2" prompt="UOM" viewName="PoNotifLinesSummaryVO" viewAttr="UnitMeasLookupCode" maximumLength="25"/>
+                  <oa:messageStyledText id="Quantity" dataType="NUMBER" prompt="Quantity" viewName="PoNotifLinesSummaryVO" viewAttr="Quantity"/>
+                  <oa:messageStyledText id="UnitPrice" dataType="NUMBER" prompt="Unit Price" viewName="PoNotifLinesSummaryVO" viewAttr="UnitPrice"/>
+                  <oa:messageStyledText id="LineAmount" dataType="NUMBER" prompt="Line Amount" viewName="PoNotifLinesSummaryVO" viewAttr="LineAmount"/>
+                  <oa:messageStyledText id="NeedByDate" dataType="VARCHAR2" prompt="Need By Date" viewName="PoNotifLinesSummaryVO" viewAttr="NeedByDate" maximumLength="20"/>
+                  <oa:messageStyledText id="ProjectName" dataType="VARCHAR2" prompt="Project" viewName="PoNotifLinesSummaryVO" viewAttr="ProjectName" maximumLength="30"/>
+                  <oa:messageStyledText id="Task" prompt="Task" viewName="PoNotifLinesSummaryVO" viewAttr="TaskName"/>
+                  <oa:messageStyledText id="Budget" viewName="PoNotifLinesSummaryVO" viewAttr="Budget" prompt="预算"/>
+                  <oa:messageStyledText id="UsedBudget" viewAttr="UsedBudget" viewName="PoNotifLinesSummaryVO" prompt="已用预算"/>
+                  <oa:rawText id="LeftBudget" viewAttr="LeftBudget" viewName="PoNotifLinesSummaryVO" prompt="剩余预算"/>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:header>
+   </ui:contents>
+</oa:header>

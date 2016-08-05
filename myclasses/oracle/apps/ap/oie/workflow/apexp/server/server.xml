@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<!-- $Header: server.xml 120.5 2008/02/06 09:11:46 rveliche ship $ -->
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.ap.oie.workflow.apexp.server" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.13.93" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="NotifAM"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="NotifAdjLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifAdjLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifCashLinesErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCashLinesErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifCashLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCashLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifCreditLinesErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCreditLinesErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifCreditLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCreditLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifExpAllocErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifExpAllocErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifExpLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifExpLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="PersonalLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.PersonalLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ViolationTypesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.ViolationTypesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifHeaderErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifHeaderErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifLinesErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifLinesErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifOtherErrorVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifOtherErrorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifPolicyLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifPolicyLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifAuditLinesVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifAuditLinesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifAMEInstructionsVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifAMEInstructionsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifExpHistoryVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifExpHistoryVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifExpAllocationsVO"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifExpAllocationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifCashToAllocVL"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCashToAllocVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="NotifCreditToAllocVL"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.NotifCreditToAllocVL"
+      ObjectType="ViewLink" >
+   </Containee>
+</JboPackage>

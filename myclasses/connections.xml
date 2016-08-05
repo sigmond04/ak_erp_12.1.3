@@ -1,0 +1,19 @@
+<?xml version = '1.0'?>
+<!DOCTYPE connections>
+<connections>
+   <connection>
+      <JDBC_PORT>1524</JDBC_PORT>
+      <ConnectionType>JDBC</ConnectionType>
+      <HOSTNAME>aiap753a.akcome.com</HOSTNAME>
+      <DeployPassword>true</DeployPassword>
+      <user>apps</user>
+      <ConnectionName>akcome_terp2</ConnectionName>
+      <ServiceName>TERP2</ServiceName>
+      <Role>Normal</Role>
+      <PWD>
+         <![CDATA[0512BFDFC37A981DA164AF0DF6B4ACE09E]]>
+      </PWD>
+      <JdbcDriver>oracle.jdbc.OracleDriver</JdbcDriver>
+      <ORACLE_JDBC_TYPE>thin</ORACLE_JDBC_TYPE>
+   </connection>
+</connections>

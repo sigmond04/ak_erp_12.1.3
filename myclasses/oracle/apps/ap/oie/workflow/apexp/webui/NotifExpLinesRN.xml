@@ -1,0 +1,341 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: NotifExpLinesRN.xml 120.4.12010000.4 2010/08/23 11:35:42 rveliche ship $" prompt="" standalone="true" amDefName="oracle.apps.ap.oie.workflow.apexp.server.NotifAM" scope="/" controllerClass="oracle.apps.ap.oie.workflow.apexp.webui.NotifExpLinesCO" adminCustomizable="true" userCustomizable="true">
+   <ui:contents>
+      <oa:header id="CreditCardLines" text="Corporate Credit Card Expenses: Business Expenses" adminCustomizable="true">
+         <ui:contents>
+            <oa:advancedTable id="CreditLinesTbl" viewName="NotifCreditLinesVO" text="" width="100%" shortDesc="This table lists business credit card transactions added to the expense report." adminCustomizable="true" blockSize="50" detailViewAttr="Detailshideshow">
+               <ui:contents>
+                  <oa:column id="CCLineCol" adminCustomizable="true" columnDataFormat="textFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCLineHdr" prompt="Line"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCLine" viewAttr="StringLineNumber"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCViolationTypeCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCViolationTypeHdr" prompt="Violation Type"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCViolationType" viewAttr="ViolationType"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCDateCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCDateHdr" prompt="Date"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCDate" viewAttr="StartExpenseDate" dataType="DATE"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCExpenseTypeCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCExpenseTypeHdr" prompt="Expense Type"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCExpenseType" viewAttr="ExpenseType"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCMerchantNameCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCMerchantNameHdr" prompt="Merchant Name"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCMerchantName" viewAttr="MerchantName" rendered="true"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCAmountCol" totalValue="true" columnDataFormat="numberFormat" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCAmountHdr" prompt="Reimbursable Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCAmount" viewAttr="Amount" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCApproverAmountCol" totalValue="true" columnDataFormat="numberFormat" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCApproverAmountHdr" prompt="Approver Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCApproverAmount" viewAttr="ApproverAmount" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCJustificationCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCJustificationHdr" prompt="Justification"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCJustification" viewAttr="Justification"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCAudIssueCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCAudIssueHdr" prompt="Audit Issue"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCAudIssue" viewAttr="AdjustmentReasonCode"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCImageReceiptRequiredCol" columnDataFormat="iconButtonFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCImageReceiptRequiredHdr" prompt="Imaged Receipt Required"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:switcher id="CCImageReceiptRequired" extends="/oracle/apps/ap/oie/workflow/apexp/webui/ReceiptRequiredSwitcherRN" viewAttr="ImageReceiptRequiredFlag"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCExpAllocationsUpdatedCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCExpAllocationsUpdatedHdr" prompt="Expense Accounts Updated" shortDesc="This column shows whether the user has updated the expense allocations of this expense line."/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCExpAllocationsUpdated" viewAttr="ExpAllocationsUpdated"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCAllocationReasonCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CCAllocationReasonHdr" prompt="Allocation Reason" shortDesc="This column shows the Allocation Reason."/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CCAllocationReason" viewAttr="AllocationReason"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CCLineAttachmentsCol">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader11" prompt="Attachments"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:attachmentImage id="CCLineAttachments" autoCommitEnabled="true">
+                           <oa:entityMappings>
+                              <oa:entityMap id="entityMap11" updateAllowed="false" deleteAllowed="false" insertAllowed="false" showAll="true" entityId="OIE_LINE_ATTACHMENTS">
+                                 <oa:primaryKeys>
+                                    <oa:primaryKey id="PrimaryKey_ReportLineId1" viewAttr="ReportLineId"/>
+                                 </oa:primaryKeys>
+                              </oa:entityMap>
+                           </oa:entityMappings>
+                        </oa:attachmentImage>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+               <ui:footer>
+                  <oa:tableFooter id="CCTableFooter">
+                     <ui:total>
+                        <oa:totalRow id="CCtotalRow" readOnly="true"/>
+                     </ui:total>
+                  </oa:tableFooter>
+               </ui:footer>
+               <ui:detail>
+                  <oa:header id="CreditAllocations" text="Expense Allocations">
+                     <ui:contents>
+                        <oa:advancedTable id="CreditAllocTbl" extends="/oracle/apps/ap/oie/workflow/apexp/webui/NotifExpAllocationsTblRN"/>
+                     </ui:contents>
+                  </oa:header>
+               </ui:detail>
+            </oa:advancedTable>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="CashLines" text="Cash and Other Expenses: Business Expenses" adminCustomizable="true">
+         <ui:contents>
+            <oa:advancedTable id="CashLinesTbl" viewName="NotifCashLinesVO" text="" width="100%" shortDesc="This table lists cash and other expenses added to the expense report." adminCustomizable="true" blockSize="50" detailViewAttr="Detailshideshow">
+               <ui:contents>
+                  <oa:column id="LineCol" columnDataFormat="textFormat" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="LineHdr" prompt="Line"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Line" viewAttr="StringLineNumber"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="ViolationTypeCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="ViolationTypeHdr" prompt="Violation Type"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="ViolationType" viewAttr="ViolationType"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="DateCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="DateHdr" prompt="Date"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Date" viewAttr="StartExpenseDate" dataType="DATE"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="ExpenseTypeCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="ExpenseTypeHdr" prompt="Expense Type"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="ExpenseType" viewAttr="ExpenseType"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="MerchantNameCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="MerchantNameHdr" prompt="Merchant Name"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="MerchantName" viewAttr="MerchantName" rendered="true"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="AmountCol" columnDataFormat="numberFormat" totalValue="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="AmountHdr" prompt="Reimbursable Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Amount" viewAttr="Amount" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="ApproverAmountCol" totalValue="true" columnDataFormat="numberFormat" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="ApproverAmountHdr" prompt="Approver Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="ApproverAmount" viewAttr="ApproverAmount" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="JustificationCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="JustificationHdr" prompt="Justification"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Justification" viewAttr="Justification"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="BudgtCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="BudgetHdr" prompt="预算"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Budget" viewAttr="Budget"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="UsedBudgetCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="UsedBudgetHdr" prompt="已用预算"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="UsedBudget" viewAttr="UsedBudget"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="LeftBudgetCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="LeftBudgetHdr" prompt="剩余预算"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:rawText id="LeftBudget" viewAttr="LeftBudget"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="AudIssueCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="AudIssueHdr" prompt="Audit Issue"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="AudIssue" viewAttr="AdjustmentReasonCode"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="ImageReceiptRequiredCol" columnDataFormat="iconButtonFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="ImageReceiptRequiredHdr" prompt="Imaged Receipt Required"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:switcher id="ImageReceiptRequired" extends="/oracle/apps/ap/oie/workflow/apexp/webui/ReceiptRequiredSwitcherRN" viewAttr="ImageReceiptRequiredFlag"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="ExpAllocationsUpdatedCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="ExpAllocationsUpdateHdr" prompt="Expense Accounts Updated"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="ExpAllocationsUpdated" viewAttr="ExpAllocationsUpdated"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="AllocationReasonCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="AllocationReasonHdr" prompt="Allocation Reason" shortDesc="This column shows the Allocation Reason."/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="AllocationReason" viewAttr="AllocationReason"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="LineAttachmentsCol">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader1" prompt="Attachments"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:attachmentImage id="LineAttachments" autoCommitEnabled="true">
+                           <oa:entityMappings>
+                              <oa:entityMap id="entityMap1" updateAllowed="false" deleteAllowed="false" insertAllowed="false" showAll="false" entityId="OIE_LINE_ATTACHMENTS">
+                                 <oa:primaryKeys>
+                                    <oa:primaryKey id="PrimaryKey_ReportLineId" viewAttr="ReportLineId"/>
+                                 </oa:primaryKeys>
+                                 <oa:categoryMappings>
+                                    <oa:categoryMap id="ReceiptCategory" categoryName="OIE_RECEIPT_CATEGORY"/>
+                                    <oa:categoryMap id="MissingReceiptsDeclCategory" categoryName="OIE_RECEIPTS_DECL_CATEGORY"/>
+                                    <oa:categoryMap id="ItineraryCategory" categoryName="OIE_ITINERARY_CATEGORY"/>
+                                 </oa:categoryMappings>
+                              </oa:entityMap>
+                           </oa:entityMappings>
+                        </oa:attachmentImage>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+               <ui:footer>
+                  <oa:tableFooter id="tableFooterRow">
+                     <ui:total>
+                        <oa:totalRow id="totalRow" readOnly="true"/>
+                     </ui:total>
+                  </oa:tableFooter>
+               </ui:footer>
+               <ui:detail>
+                  <oa:header id="CashAllocations" text="Expense Allocations">
+                     <ui:contents>
+                        <oa:advancedTable id="CashAllocTbl" extends="/oracle/apps/ap/oie/workflow/apexp/webui/NotifExpAllocationsTblRN"/>
+                     </ui:contents>
+                  </oa:header>
+               </ui:detail>
+            </oa:advancedTable>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="PersonalLines" text="Personal Expenses" adminCustomizable="true">
+         <ui:contents>
+            <oa:advancedTable id="PersonalLinesTbl" viewName="PersonalLinesVO" text="" width="100%" shortDesc="This table lists personal credit card transactions added to the expense report." adminCustomizable="true" blockSize="50">
+               <ui:contents>
+                  <oa:column id="TransactionDateCol" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="TransactionDateHdr" prompt="Date"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="TransactionDate" viewAttr="StartExpenseDate" dataType="DATE"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="PerMerchantNameCol" rendered="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="PerMerchantNameHdr" prompt="Merchant Name"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="PerMerchantName" viewAttr="MerchantName" rendered="true"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="PerAmountCol" columnDataFormat="numberFormat" totalValue="true" adminCustomizable="true">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="PerAmountHdr" prompt="Reimbursable Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="PerAmount" viewAttr="Amount" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+               <ui:footer>
+                  <oa:tableFooter id="PerTableFooter">
+                     <ui:total>
+                        <oa:totalRow id="PertotalRow" readOnly="true"/>
+                     </ui:total>
+                  </oa:tableFooter>
+               </ui:footer>
+            </oa:advancedTable>
+         </ui:contents>
+      </oa:header>
+   </ui:contents>
+</oa:stackLayout>

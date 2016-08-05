@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!--DBDRV: -->
+<xliff version="1.0">
+   <file datatype="jdr" original="NotifPGRN" product-version="$Header: NotifPGRN.xlf 120.6 2007/01/10 21:06:51 gbellary noship $" source-language="en-US" target-language="zh-CN">
+      <body>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..SummaryTitle...text" translate="yes" maxbytes="4000" maxwidth="35" size-unit="char">
+            <source>Amount Summary</source>
+            <target>金额汇总</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">header</prop>
+               <prop prop-type="attributeName">text</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..LineTypeHeader...prompt" translate="yes" maxbytes="4000" maxwidth="22" size-unit="char">
+            <source>Line Type</source>
+            <target>行类型</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..AmountHeader...prompt" translate="yes" maxbytes="4000" maxwidth="15" size-unit="char">
+            <source>Amount</source>
+            <target>金额</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..PaymentScheduleTitle...text" translate="yes" maxbytes="4000" maxwidth="55" size-unit="char">
+            <source>Payment Schedule Lines</source>
+            <target>计划付款行</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">header</prop>
+               <prop prop-type="attributeName">text</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..PaymentNum...prompt" translate="yes" maxbytes="4000" maxwidth="27" size-unit="char">
+            <source>Payment Num</source>
+            <target>行号</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">messageStyledText</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..DueDate...prompt" translate="yes" maxbytes="4000" maxwidth="20" size-unit="char">
+            <source>Due Date</source>
+            <target>到期日</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">messageStyledText</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..PaymentCurrencyCode...prompt" translate="yes" maxbytes="4000" maxwidth="52" size-unit="char">
+            <source>Payment Currency Code</source>
+            <target>币种</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">messageStyledText</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..GrossAmount...prompt" translate="yes" maxbytes="4000" maxwidth="30" size-unit="char">
+            <source>Gross Amount</source>
+            <target>总金额</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">messageStyledText</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..AmountRemaining...prompt" translate="yes" maxbytes="4000" maxwidth="40" size-unit="char">
+            <source>Amount Remaining</source>
+            <target>剩余金额</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">messageStyledText</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..LinesTitle...text" translate="yes" maxbytes="4000" maxwidth="32" size-unit="char">
+            <source>Invoice Lines</source>
+            <target>发票行</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">header</prop>
+               <prop prop-type="attributeName">text</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..DescriptionHeader...prompt" translate="yes" maxbytes="4000" maxwidth="27" size-unit="char">
+            <source>Description</source>
+            <target>说明</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..PONumberHeader...prompt" translate="yes" maxbytes="4000" maxwidth="22" size-unit="char">
+            <source>PO Number</source>
+            <target>PO 编号</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..QuantityInvoicedHeader...prompt" translate="yes" maxbytes="4000" maxwidth="42" size-unit="char">
+            <source>Quantity Invoiced</source>
+            <target>开票数量</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..UOMHeader...prompt" translate="yes" maxbytes="4000" maxwidth="15" size-unit="char">
+            <source>UOM</source>
+            <target>单位</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..UnitPriceHeader...prompt" translate="yes" maxbytes="4000" maxwidth="25" size-unit="char">
+            <source>Unit Price</source>
+            <target>单价</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..LineAmtHeader...prompt" translate="yes" maxbytes="4000" maxwidth="15" size-unit="char">
+            <source>Amount</source>
+            <target>金额</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+         <trans-unit id=".oracle.apps.ap.invoice.request.negotiation.webui.NotifPGRN..WFStatusHeader...prompt" translate="yes" maxbytes="4000" maxwidth="15" size-unit="char">
+            <source>Status</source>
+            <target>状态</target>
+            <prop-group name="ora_untranslatable">
+               <prop prop-type="tagName">sortableHeader</prop>
+               <prop prop-type="attributeName">prompt</prop>
+            </prop-group>
+         </trans-unit>
+      </body>
+   </file>
+</xliff>

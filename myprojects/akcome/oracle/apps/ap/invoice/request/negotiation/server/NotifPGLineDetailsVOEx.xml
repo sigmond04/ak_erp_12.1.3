@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="NotifPGLineDetailsVOEx"
+   Extends="oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   ComponentClass="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVOExImpl"
+   FetchMode="FETCH_AS_NEEDED"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT lines.description
+      ,ph.segment1
+      ,lines.quantity_invoiced
+      ,lines.unit_meas_lookup_code
+      ,lines.unit_price
+      ,lines.amount
+      ,alc.displayed_field approval_status
+      ,to_char(lines.unit_price, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) unit_price_disp
+      ,to_char(lines.amount, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) amount_disp
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'PERIOD') period_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD'))
+       END period_left_budget
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'YEAR') year_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR'))
+       END year_left_budget
+
+FROM   ap_invoice_lines_all lines
+      ,ap_invoices_all      ai
+      ,po_headers_all       ph
+      ,ap_lookup_codes      alc
+      ,ap_holds_all         holds
+WHERE  lines.po_header_id = ph.po_header_id(+)
+AND    lines.invoice_id = ai.invoice_id
+AND    alc.lookup_type = 'AP_WFAPPROVAL_STATUS'
+AND    alc.lookup_code = lines.wfapproval_status
+AND    nvl(holds.line_location_id, -99) = nvl(lines.po_line_location_id, -99)
+AND    holds.invoice_id = lines.invoice_id
+AND    holds.hold_id = :0
+AND    1 = :1
+UNION ALL
+SELECT lines.description
+      ,ph.segment1
+      ,lines.quantity_invoiced
+      ,lines.unit_meas_lookup_code
+      ,lines.unit_price
+      ,lines.amount
+      ,alc.displayed_field approval_status
+      ,to_char(lines.unit_price, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) unit_price_disp
+      ,to_char(lines.amount, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) amount_disp
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'PERIOD') period_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD'))
+       END period_left_budget
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'YEAR') year_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR'))
+       END year_left_budget
+
+FROM   ap_invoice_lines_all lines
+      ,ap_invoices_all      ai
+      ,po_headers_all       ph
+      ,ap_lookup_codes      alc
+      ,ap_apinv_approvers   aprv
+WHERE  lines.po_header_id = ph.po_header_id(+)
+AND    lines.invoice_id = ai.invoice_id
+AND    alc.lookup_type = 'AP_WFAPPROVAL_STATUS'
+AND    alc.lookup_code = lines.wfapproval_status
+AND    lines.invoice_id = :2
+AND    aprv.child_process_item_type = :3
+AND    aprv.child_process_item_key = :4
+AND    aprv.invoice_id = lines.invoice_id
+AND    aprv.line_number = lines.line_number
+AND    1 = :5
+UNION ALL
+SELECT lines.description
+      ,ph.segment1
+      ,lines.quantity_invoiced
+      ,lines.unit_meas_lookup_code
+      ,lines.unit_price
+      ,lines.amount
+      ,alc.displayed_field approval_status
+      ,to_char(lines.unit_price, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) unit_price_disp
+      ,to_char(lines.amount, fnd_currency.safe_get_format_mask(ai.invoice_currency_code, 25)) amount_disp
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'PERIOD') period_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'PERIOD'))
+       END period_left_budget
+       
+      ,xxap_notifactions_home.get_inv_line_budget(lines.invoice_id, lines.line_number, 'YEAR') year_budget
+      ,CASE
+         WHEN xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR') <= 0 THEN
+          '<font color="#FF0000">' || to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR')) || '</font>'
+         ELSE
+          to_char(xxap_notifactions_home.get_inv_line_remainingbudget(lines.invoice_id, lines.line_number, 'YEAR'))
+       END year_left_budget
+
+FROM   ap_invoice_lines_all lines
+      ,ap_invoices_all      ai
+      ,po_headers_all       ph
+      ,ap_lookup_codes      alc
+WHERE  lines.po_header_id = ph.po_header_id(+)
+AND    lines.invoice_id = ai.invoice_id
+AND    alc.lookup_type = 'AP_WFAPPROVAL_STATUS'
+AND    alc.lookup_code(+) = lines.wfapproval_status
+AND    lines.invoice_id = :6
+AND    1 = :7
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Description"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DESCRIPTION"
+      Expression="DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Segment1"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEGMENT1"
+      Expression="SEGMENT1"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="QuantityInvoiced"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="QUANTITY_INVOICED"
+      Expression="QUANTITY_INVOICED"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UnitMeasLookupCode"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="25"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="UNIT_MEAS_LOOKUP_CODE"
+      Expression="UNIT_MEAS_LOOKUP_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="25" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UnitPrice"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="UNIT_PRICE"
+      Expression="UNIT_PRICE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Amount"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="AMOUNT"
+      Expression="AMOUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalStatus"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="APPROVAL_STATUS"
+      Expression="APPROVAL_STATUS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UnitPriceDisp"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="UNIT_PRICE_DISP"
+      Expression="UNIT_PRICE_DISP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AmountDisp"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="AMOUNT_DISP"
+      Expression="AMOUNT_DISP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PeriodBudget"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PERIOD_BUDGET"
+      Expression="PERIOD_BUDGET"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PeriodLeftBudget"
+      IsPersistent="false"
+      Precision="69"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PERIOD_LEFT_BUDGET"
+      Expression="PERIOD_LEFT_BUDGET"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="69" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="YearBudget"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="YEAR_BUDGET"
+      Expression="YEAR_BUDGET"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="YearLeftBudget"
+      IsPersistent="false"
+      Precision="69"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="YEAR_LEFT_BUDGET"
+      Expression="YEAR_LEFT_BUDGET"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="69" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Budget"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="BUDGET"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UsedBudget"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="USED_BUDGET"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LeftBudget"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="LEFT_BUDGET"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="69" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

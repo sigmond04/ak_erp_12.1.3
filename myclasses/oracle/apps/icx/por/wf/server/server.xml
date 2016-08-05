@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<!-- $Header: server.xml 120.2.12010000.2 2008/08/02 14:34:11 kkram ship $ -->
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.icx.por.wf.server" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.11.21" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="RCOApprovalNotificationsAM"
+      FullName="oracle.apps.icx.por.wf.server.RCOApprovalNotificationsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="RCOReqLinesNotificationsVO"
+      FullName="oracle.apps.icx.por.wf.server.RCOReqLinesNotificationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ReqApprovalNotificationsAM"
+      FullName="oracle.apps.icx.por.wf.server.ReqApprovalNotificationsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="ReqLinesNotificationsVO"
+      FullName="oracle.apps.icx.por.wf.server.ReqLinesNotificationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RcvPOLinesNotificationsVO"
+      FullName="oracle.apps.icx.por.wf.server.RcvPOLinesNotificationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RcvIOLinesNotificationsVO"
+      FullName="oracle.apps.icx.por.wf.server.RcvIOLinesNotificationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RcvPOInvoicesVO"
+      FullName="oracle.apps.icx.por.wf.server.RcvPOInvoicesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RCOBuyerApprovalNotfnVO"
+      FullName="oracle.apps.icx.por.wf.server.RCOBuyerApprovalNotfnVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ReceiveItemsNotfnAM"
+      FullName="oracle.apps.icx.por.wf.server.ReceiveItemsNotfnAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="RCOSuppInfoVO"
+      FullName="oracle.apps.icx.por.wf.server.RCOSuppInfoVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RCOBuyerApprovalNotfnAM"
+      FullName="oracle.apps.icx.por.wf.server.RCOBuyerApprovalNotfnAM"
+      ObjectType="AppModule" >
+   </Containee>
+</JboPackage>

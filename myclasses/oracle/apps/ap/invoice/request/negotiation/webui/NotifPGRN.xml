@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header: NotifPGRN.xml 120.6 2007/01/10 21:06:51 gbellary noship $" controllerClass="oracle.apps.ap.invoice.request.negotiation.webui.NotifPGCO" amDefName="oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAM" scope="/oracle/apps/ap/invoice/request/negotiation/webui" standalone="true">
+   <ui:contents>
+      <oa:header id="SummaryTitle" text="Amount Summary">
+         <ui:contents>
+            <oa:advancedTable id="AccountSummaryRN" viewName="NotifPGAcctSumVO" width="40%">
+               <ui:contents>
+                  <oa:column id="LineTypeColumn" width="50%">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="LineTypeHeader" prompt="Line Type"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="LineType" viewAttr="LineType"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="AmountColumn" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="AmountHeader" prompt="Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Amount" viewAttr="AmountDisp" dataType="VARCHAR2"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+            </oa:advancedTable>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="PaymentScheduleTitle" text="Payment Schedule Lines">
+         <ui:contents>
+            <oa:table id="NotifPGPaymentSchedulesVO" width="50%">
+               <ui:contents>
+                  <oa:messageStyledText id="PaymentNum" dataType="NUMBER" prompt="Payment Num" viewName="NotifPGPaymentSchedulesVO" viewAttr="PaymentNum" maximumLength="15"/>
+                  <oa:messageStyledText id="DueDate" dataType="DATE" prompt="Due Date" viewName="NotifPGPaymentSchedulesVO" viewAttr="DueDate"/>
+                  <oa:messageStyledText id="PaymentCurrencyCode" dataType="VARCHAR2" prompt="Payment Currency Code" viewName="NotifPGPaymentSchedulesVO" viewAttr="PaymentCurrencyCode" maximumLength="15"/>
+                  <oa:messageStyledText id="GrossAmount" dataType="NUMBER" prompt="Gross Amount" viewName="NotifPGPaymentSchedulesVO" viewAttr="GrossAmount"/>
+                  <oa:messageStyledText id="AmountRemaining" dataType="NUMBER" prompt="Amount Remaining" viewName="NotifPGPaymentSchedulesVO" viewAttr="AmountRemaining"/>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="LinesTitle" text="Invoice Lines">
+         <ui:contents>
+            <oa:advancedTable id="InvoiceLinesRN" viewName="NotifPGLineDetailsVO" width="100%">
+               <ui:contents>
+                  <oa:column id="DescriptionColumn">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="DescriptionHeader" prompt="Description"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="Description" viewAttr="Description"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="PONumberColumn">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="PONumberHeader" prompt="PO Number"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="PONumber" viewAttr="Segment1"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="QuantityInvoicedColumn" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="QuantityInvoicedHeader" prompt="Quantity Invoiced"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="QuantityInvoiced" viewAttr="QuantityInvoiced" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="UOMColumn">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="UOMHeader" prompt="UOM"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="UOM" viewAttr="UnitMeasLookupCode"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="UnitPriceColumn" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="UnitPriceHeader" prompt="Unit Price"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="UnitPrice" viewAttr="UnitPriceDisp" dataType="VARCHAR2"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="LineAmountColumn" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="LineAmtHeader" prompt="Amount"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="LineAmount" viewAttr="AmountDisp" dataType="VARCHAR2"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="WFStatusColumn" rendered="false">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="WFStatusHeader" prompt="Status"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="WFStatus" viewAttr="ApprovalStatus"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+            </oa:advancedTable>
+         </ui:contents>
+      </oa:header>
+   </ui:contents>
+</oa:stackLayout>

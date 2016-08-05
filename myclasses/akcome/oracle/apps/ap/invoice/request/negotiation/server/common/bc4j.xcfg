@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="NotificationPageAMExLocal">
+         <AppModuleJndiName>akcome.oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAMEx</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>akcome_terp2</JDBCName>
+         <ApplicationName>akcome.oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAMEx</ApplicationName>
+         <jbo.project>AKOAFCUS</jbo.project>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="akcome_terp2">
+      <ENTRY name="JDBC_PORT" value="1524"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="aiap753a.akcome.com"/>
+      <ENTRY name="DeployPassword" value="true"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="akcome_terp2"/>
+      <ENTRY name="ServiceName" value="TERP2"/>
+      <ENTRY name="Role" value="Normal"/>
+      <ENTRY name="password">
+         <![CDATA[{904}05051EA873C9491A737B7EE9A310019F92]]>
+      </ENTRY>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

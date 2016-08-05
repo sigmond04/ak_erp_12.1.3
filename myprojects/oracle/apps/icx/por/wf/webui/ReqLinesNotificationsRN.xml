@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header: ReqLinesNotificationsRN.xml 120.1 2006/07/25 03:56:33 sudsubra noship $" amDefName="oracle.apps.icx.por.wf.server.ReqApprovalNotificationsAM" controllerClass="oracle.apps.icx.por.wf.webui.ReqLinesNotificationsCO">
+   <ui:contents>
+      <oa:header id="HeaderRN" text="Requisition Lines">
+         <ui:contents>
+            <oa:staticStyledText id="ContractorStatusHelpText" rendered="false" text="To assign a contractor online, click on View Requisition Details." prompt="To assign a contractor online, click on View Requisition Details." comment="Helpful text will be rendered only if contractorStatus is pending" styleClass="OraInstructionText"/>
+            <oa:table id="ReqLinesTable" width="100%" comment="Requisition Lines Table" shortDesc="Table contains the details of requisition lines">
+               <ui:contents>
+                  <oa:messageStyledText id="Line" dataType="NUMBER" prompt="Line" viewName="ReqLinesNotificationsVO" viewAttr="Line"/>
+                  <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Description" viewName="ReqLinesNotificationsVO" viewAttr="Description" maximumLength="240"/>
+                  <oa:messageStyledText id="ItemNumber" dataType="VARCHAR2" prompt="Item Number" viewName="ReqLinesNotificationsVO" viewAttr="ItemNumber" maximumLength="40" rendered="false"/>
+                  <oa:messageStyledText id="ItemRevision" dataType="VARCHAR2" prompt="Item Revision" viewName="ReqLinesNotificationsVO" viewAttr="ItemRevision" maximumLength="3" rendered="false"/>
+                  <oa:messageStyledText id="SuggSupplier" dataType="VARCHAR2" prompt="Supplier" viewName="ReqLinesNotificationsVO" viewAttr="SuggSupplier" maximumLength="4000"/>
+                  <oa:messageStyledText id="SuggSite" dataType="VARCHAR2" prompt="Site" viewName="ReqLinesNotificationsVO" viewAttr="SuggSite" maximumLength="4000" rendered="false"/>
+                  <oa:messageStyledText id="Location" dataType="VARCHAR2" prompt="Location" viewName="ReqLinesNotificationsVO" viewAttr="Location" maximumLength="60" rendered="false"/>
+                  <oa:messageStyledText id="ContractorStatus" dataType="VARCHAR2" prompt="Contractor Status" viewName="ReqLinesNotificationsVO" viewAttr="ContractorStatus" maximumLength="25"/>
+                  <oa:messageStyledText id="ContractorName" dataType="VARCHAR2" prompt="Contractor Name" viewName="ReqLinesNotificationsVO" viewAttr="ContractorName" maximumLength="481"/>
+                  <oa:messageStyledText id="StartDate" dataType="DATE" prompt="Start Date" viewName="ReqLinesNotificationsVO" viewAttr="StartDate"/>
+                  <oa:messageStyledText id="EndDate" dataType="DATE" prompt="End Date" viewName="ReqLinesNotificationsVO" viewAttr="EndDate"/>
+                  <oa:messageStyledText id="NeedBy" dataType="DATETIME" prompt="Need-By" viewName="ReqLinesNotificationsVO" viewAttr="NeedBy" rendered="false"/>
+                  <oa:messageStyledText id="CostCenter" dataType="VARCHAR2" prompt="Cost Center" viewName="ReqLinesNotificationsVO" viewAttr="CostCenter" maximumLength="4000"/>
+                  <oa:messageStyledText id="Uom" dataType="VARCHAR2" prompt="Unit" viewName="ReqLinesNotificationsVO" viewAttr="Uom" maximumLength="25"/>
+                  <oa:messageStyledText id="Quantity" dataType="NUMBER" prompt="Quantity" viewName="ReqLinesNotificationsVO" viewAttr="Quantity"/>
+                  <oa:flowLayout id="TxnPriceFlowLayoutRN" prompt="Price">
+                     <ui:contents>
+                        <oa:messageStyledText id="TxnCurrencyUnitPrice" dataType="NUMBER" viewName="ReqLinesNotificationsVO" viewAttr="CurrencyUnitPrice" rendered="${oa.ReqLinesNotificationsVO.CurrUnitPriceDisplayFlag}"/>
+                        <oa:spacer id="TxnPriceSpacer" width="3"/>
+                        <oa:messageStyledText id="TxnPriceCurrencyCode" dataType="VARCHAR2" viewName="ReqLinesNotificationsVO" viewAttr="TxnCurrencyCode" maximumLength="15" rendered="${oa.ReqLinesNotificationsVO.CurrUnitPriceDisplayFlag}"/>
+                     </ui:contents>
+                  </oa:flowLayout>
+                  <oa:messageStyledText id="FuncCurrencyUnitPrice" dataType="NUMBER" prompt="Price" viewName="ReqLinesNotificationsVO" viewAttr="UnitPrice" rendered="true"/>
+                  <oa:flowLayout id="TxnAmountFlowLayoutRN" prompt="Amount" rendered="false">
+                     <ui:contents>
+                        <oa:messageStyledText id="TxnCurrencyAmount" viewName="ReqLinesNotificationsVO" viewAttr="CurrencyLineAmount" dataType="NUMBER" rendered="${oa.ReqLinesNotificationsVO.CurrAmountDisplayFlag}"/>
+                        <oa:spacer id="TxnAmountSpacer" width="3"/>
+                        <oa:messageStyledText id="TxnAmountCurrencyCode" viewName="ReqLinesNotificationsVO" viewAttr="TxnCurrencyCode" rendered="${oa.ReqLinesNotificationsVO.CurrAmountDisplayFlag}"/>
+                     </ui:contents>
+                  </oa:flowLayout>
+                  <oa:messageStyledText id="FuncCurrencyAmount" dataType="NUMBER" prompt="Amount" viewName="ReqLinesNotificationsVO" viewAttr="LineAmount"/>
+                  <oa:messageStyledText id="Requestor" dataType="VARCHAR2" prompt="Requestor" viewName="ReqLinesNotificationsVO" viewAttr="Requestor" maximumLength="240" rendered="false"/>
+                  <oa:messageStyledText id="Budget" viewAttr="Budget" viewName="ReqLinesNotificationsVO" prompt="预算"/>
+                  <oa:messageStyledText id="UsedBudget" viewAttr="UsedBudget" viewName="ReqLinesNotificationsVO" prompt="已用预算"/>
+                  <oa:rawText id="LeftBudget" viewAttr="LeftBudget" viewName="ReqLinesNotificationsVO" prompt="剩余预算"/>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:header>
+   </ui:contents>
+</oa:stackLayout>

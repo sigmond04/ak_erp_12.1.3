@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="akcome.oracle.apps.icx.por.wf.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="ReqLinesNotificationsVOEx"
+      FullName="akcome.oracle.apps.icx.por.wf.server.ReqLinesNotificationsVOEx"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

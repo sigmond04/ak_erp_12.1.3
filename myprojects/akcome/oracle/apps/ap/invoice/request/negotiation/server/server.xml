@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="akcome.oracle.apps.ap.invoice.request.negotiation.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="NotificationPageAMEx"
+      FullName="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAMEx"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="NotifPGLineDetailsVOEx"
+      FullName="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVOEx"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NotifPGPaymentSchedulesVO"
+      FullName="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotifPGPaymentSchedulesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

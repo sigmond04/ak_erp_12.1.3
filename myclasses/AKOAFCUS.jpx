@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+
+<JboProject
+   Name="AKOAFCUS"
+   SeparateXMLFiles="true"
+   PackageName="" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_NamedConnection" Value="akcome_terp2" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_jprName" Value="AKOAFCUS.jpr" />
+      <Attr Name="_appModuleNames0" Value="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAMEx" />
+   </DesignTime>
+   <Containee
+      Name="server"
+      FullName="akcome.oracle.apps.ap.invoice.request.negotiation.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="akcome.oracle.apps.ap.oie.workflow.apexp.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="akcome.oracle.apps.icx.por.wf.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="akcome.oracle.apps.po.notifications.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.ap.invoice.request.negotiation.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.ap.oie.workflow.apexp.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.icx.por.wf.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.po.notifications.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Substitutes>
+      <Substitute OldName ="oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAM" NewName ="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotificationPageAMEx" />
+      <Substitute OldName ="oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVO" NewName ="akcome.oracle.apps.ap.invoice.request.negotiation.server.NotifPGLineDetailsVOEx" />
+      <Substitute OldName ="oracle.apps.ap.oie.workflow.apexp.server.NotifCashLinesVO" NewName ="akcome.oracle.apps.ap.oie.workflow.apexp.server.NotifCashLinesVOEx" />
+      <Substitute OldName ="oracle.apps.icx.por.wf.server.ReqLinesNotificationsVO" NewName ="akcome.oracle.apps.icx.por.wf.server.ReqLinesNotificationsVOEx" />
+      <Substitute OldName ="oracle.apps.po.notifications.server.PoNotifLinesSummaryVO" NewName ="akcome.oracle.apps.po.notifications.server.PoNotifLinesSummaryVOEx" />
+   </Substitutes>
+</JboProject>
